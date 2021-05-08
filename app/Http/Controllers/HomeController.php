@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Truck;
 use Illuminate\Http\Request;
+use Kris\LaravelFormBuilder\FormBuilder;
 
 class HomeController extends Controller
 {
@@ -21,8 +23,32 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+
+    public function create(FormBuilder $formBuilder)
     {
-        return view('home');
+        $form = $formBuilder->create(\App\Forms\TruckForm::class, [
+            'method' => 'POST',
+            'url' => route('store')
+        ]);
+        return view('home', compact('form'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(FormBuilder $formBuilder)
+    {
+        //dd($formBuilder);
+        $form = $formBuilder->create(\App\Forms\TruckForm::class);
+        $form->validate(['year_of_manufacture' => 'required|numeric|min:1900|date_format:Y|before:today']);
+        if (!$form->isValid()) {
+            return redirect()->back()->withErrors($form->getErrors())->withInput();
+        }
+        Truck::create($form->getFieldValues());
+        return redirect()->route('index');
+        // Do saving and other things...
     }
 }
