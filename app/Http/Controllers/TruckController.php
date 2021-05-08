@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Forms\TruckForm;
 use App\Truck;
 use Illuminate\Http\Request;
+use Kris\LaravelFormBuilder\FormBuilder;
 
 class TruckController extends Controller
 {
@@ -22,9 +24,14 @@ class TruckController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(FormBuilder $formBuilder)
     {
-        //
+        $form = $formBuilder->create(\App\Forms\TruckForm::class, [
+            'method' => 'POST',
+            'url' => route('trucks.store')
+        ]);
+
+        return view('truck.create', compact('form'));
     }
 
     /**
