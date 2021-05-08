@@ -38,7 +38,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <select name="owner_s_name_and_surname" id="owner_s_name_and_surname" class="form-control" required>
-                                        <option value="">owner_s_name_and_surname</option>
+                                        <option value="">Owner's name and surname</option>
                                         @foreach($trucks->groupBy('owner_s_name_and_surname') as $owner_s_name_and_surname => $truck)
                                         <option value="{{ $owner_s_name_and_surname }}">{{ $owner_s_name_and_surname }}</option>
                                         @endforeach
@@ -48,7 +48,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <select name="number_of_owners" id="number_of_owners" class="form-control" required>
-                                        <option value="">number_of_owners</option>
+                                        <option value="">Number of owners</option>
                                         @foreach($trucks->groupBy('number_of_owners') as $number_of_owners => $truck)
                                         <option value="{{ $number_of_owners }}">{{ $number_of_owners }}</option>
                                         @endforeach
