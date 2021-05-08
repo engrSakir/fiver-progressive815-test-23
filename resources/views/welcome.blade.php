@@ -152,6 +152,8 @@
             }
 
             $('#filter').click(function(){
+                $('#datatable').DataTable().destroy();
+
                 var filter_brand = $('#filter_brand').val();
                 var year_of_manufacture = $('#year_of_manufacture').val();
                 var owner_s_name_and_surname = $('#owner_s_name_and_surname').val();

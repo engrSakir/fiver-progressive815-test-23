@@ -13,22 +13,30 @@ class FrontendController extends Controller
 
         if ($request->ajax()){
             $data = Truck::all();
+            $data  = Truck::where( function($query) use($request){
+                return $request->filter_brand ?
+                       $query->from('trucks')->where('brand_id',$request->filter_brand) : '';
+           })
+           ->where(function($query) use($request){
+                return $request->year_of_manufacture ?
+                       $query->from('trucks')->where('year_of_manufacture',$request->year_of_manufacture) : '';
+           })
+           ->where(function($query) use($request){
+                return $request->owner_s_name_and_surname ?
+                       $query->from('trucks')->where('owner_s_name_and_surname',$request->owner_s_name_and_surname) : '';
+           })
+           ->where(function($query) use($request){
+                return $request->number_of_owners ?
+                       $query->from('trucks')->where('number_of_owners',$request->number_of_owners) : '';
+           })
+           ->where(function($query) use($request){
+                return $request->comments ?
+                       $query->from('trucks')->where('comments',$request->comments) : '';
+           })
 
-            if(!empty($request->filter_brand)){
-                $data = Truck::where('brand_id', $request->filter_brand)->get();
-            }
-            if(!empty($request->year_of_manufacture)){
-                $data = Truck::where('year_of_manufacture', $request->year_of_manufacture)->get();
-            }
-            if(!empty($request->owner_s_name_and_surname)){
-                $data = Truck::where('owner_s_name_and_surname', $request->owner_s_name_and_surname)->get();
-            }
-            if(!empty($request->number_of_owners)){
-                $data = Truck::where('number_of_owners', $request->number_of_owners)->get();
-            }
-            if(!empty($request->comments)){
-                $data = Truck::where('comments', $request->comments)->get();
-            }
+           ->get();
+
+
             return datatables::of($data)
                ->addColumn('brand', function($data) {
                     return $data->brand->name ?? '';
