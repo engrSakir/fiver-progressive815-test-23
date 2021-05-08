@@ -58,7 +58,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <select name="comments" id="comments" class="form-control" required>
-                                        <option value="">comments</option>
+                                        <option value="">Comments</option>
                                         @foreach($trucks->groupBy('comments') as $comments => $truck)
                                         <option value="{{ $comments }}">{{ $comments }}</option>
                                         @endforeach
@@ -168,6 +168,9 @@
             $('#reset').click(function(){
                 $('#filter_brand').val('');
                 $('#year_of_manufacture').val('');
+                $('#owner_s_name_and_surname').val('');
+                $('#number_of_owners').val('');
+                $('#comments').val('');
                 $('#datatable').DataTable().destroy();
                 fill_datatable();
             });
