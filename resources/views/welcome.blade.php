@@ -69,7 +69,7 @@
                                 <div class="form-group" align="center">
                                     <button type="button" name="filter" id="filter" class="btn btn-info">Filter</button>
 
-                                    <button type="button" name="reset" id="reset" class="btn btn-default">Reset</button>
+                                    <button type="button" name="reset" id="reset" class="btn btn-default bg-danger">Reset</button>
                                 </div>
                             </div>
                             </div>
