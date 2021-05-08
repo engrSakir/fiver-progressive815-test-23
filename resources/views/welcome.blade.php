@@ -67,8 +67,6 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group" align="center">
-                                    <button type="button" name="filter" id="filter" class="btn btn-info">Filter</button>
-
                                     <button type="button" name="reset" id="reset" class="btn btn-default bg-danger">Reset</button>
                                 </div>
                             </div>
@@ -151,9 +149,8 @@
                 });
             }
 
-            $('#filter').click(function(){
-                $('#datatable').DataTable().destroy();
-
+            $("select").change(function(){
+                $("select").not($(this)).val('');
                 var filter_brand = $('#filter_brand').val();
                 var year_of_manufacture = $('#year_of_manufacture').val();
                 var owner_s_name_and_surname = $('#owner_s_name_and_surname').val();
