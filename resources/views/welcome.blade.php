@@ -27,7 +27,7 @@
                             <tbody>
                                 {{--DATA Assign by ajax--}}
                             </tbody>
-                            <tfood>
+                            <tfoot>
                                 <tr>
                                     <th>Auto brand</th>
                                     <th>Year of manufacture</th>
@@ -35,7 +35,7 @@
                                     <th>Number of owners</th>
                                     <th>Comments</th>
                                 </tr>
-                            </tfood>
+                            </tfoot>
                         </table>
                     </div>
                 </div>
