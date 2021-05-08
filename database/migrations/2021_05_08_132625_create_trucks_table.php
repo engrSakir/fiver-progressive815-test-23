@@ -15,6 +15,11 @@ class CreateTrucksTable extends Migration
     {
         Schema::create('trucks', function (Blueprint $table) {
             $table->id();
+            $table->string('auto_brand');
+            $table->string('year_of_manufacture');
+            $table->string('owner_s_name_and_surname');
+            $table->string('number_of_owners')->nullable();
+            $table->string('comments')->nullable();
             $table->timestamps();
         });
     }

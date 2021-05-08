@@ -20,7 +20,7 @@ class TruckForm extends Form
                 'label' => 'Year of Manufacture',
                 'rules' => 'required|min:1900'
             ])
-            ->add('owner‘s_name_and_surname', Field::TEXT, [
+            ->add('owner_s_name_and_surname', Field::TEXT, [
                 'label' => 'Owner‘s Name and Surname',
                 'rules' => 'required'
             ])
