@@ -13,7 +13,9 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                        {!! form($form) !!}
+
+                            {!! form($form) !!}
+
                     </div>
                 </div>
             </div>

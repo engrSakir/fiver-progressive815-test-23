@@ -2,6 +2,7 @@
 
 namespace App\Forms;
 
+use App\Brand;
 use Kris\LaravelFormBuilder\Form;
 use Kris\LaravelFormBuilder\Field;
 
@@ -10,10 +11,10 @@ class TruckForm extends Form
     public function buildForm()
     {
         $this
-            ->add('auto_brand', Field::SELECT, [
+            ->add('brand_id', Field::SELECT, [
                 'label' => 'Auto brand',
                 'rules' => 'required',
-                'choices' => ['Volvo' => 'Volvo', 'VAZ' => 'VAZ', 'Mercedes' => 'Mercedes', 'GAZ' => 'GAZ'],
+                'choices' => [Brand::pluck('name', 'id')],
                 'empty_value' => '=== Select brand ==='
             ])
             ->add('year_of_manufacture', Field::NUMBER, [
