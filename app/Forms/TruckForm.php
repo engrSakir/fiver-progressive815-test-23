@@ -32,7 +32,7 @@ class TruckForm extends Form
 
             ->add('field_name', 'submit', [
                 'attr' => ['class' => 'btn btn-success text-center col-12'],
-                'label' => 'Create Neo One'
+                'label' => 'Create New One'
             ]);
 
     }
