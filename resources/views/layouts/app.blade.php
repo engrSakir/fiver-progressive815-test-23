@@ -25,11 +25,11 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand btn btn-success text-white" href="{{ url('/') }}">
                     {{ config('app.name', 'INDEX') }}
                 </a>
-                <a class="navbar-brand" href="{{ url('/home') }}">
-                    {{ 'HOME' }}
+                <a class="navbar-brand btn btn-success text-white" href="{{ url('/home') }}">
+                    {{ 'CREATE' }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -54,7 +54,7 @@
                                 </li>
                             @endif
                         @else
-                            <a class="navbar-brand logout-btn" href="javascript:0">
+                            <a class="navbar-brand logout-btn btn btn-success text-white" href="javascript:0">
                                 {{ Auth::user()->name }} | Logout
                             </a>
                         @endguest

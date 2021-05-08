@@ -29,6 +29,11 @@ class TruckForm extends Form
                 'label' => 'Number of owners',
             ])
             ->add('comments', 'textarea')
-            ->add('submit', 'submit');
+
+            ->add('field_name', 'submit', [
+                'attr' => ['class' => 'btn btn-success text-center col-12'],
+                'label' => 'Create Neo One'
+            ]);
+
     }
 }
