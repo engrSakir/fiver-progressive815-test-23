@@ -82,7 +82,6 @@
                                 <th>Owner's name and surname</th>
                                 <th>Number of owners</th>
                                 <th>Comments</th>
-                                <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -140,10 +139,6 @@
                         {
                             data: 'comments',
                             name: 'comments'
-                        },
-                        {
-                            data: 'action',
-                            name: 'action'
                         },
                     ]
                 });

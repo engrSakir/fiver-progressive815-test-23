@@ -40,10 +40,8 @@ class FrontendController extends Controller
             return datatables::of($data)
                ->addColumn('brand', function($data) {
                     return $data->brand->name ?? '';
-                })->addColumn('action', function($data) {
-                    return '<a href="'.url('#').'" class="btn btn-warning"> Edit </a>';
                 })
-                ->rawColumns(['brand', 'action'])
+                ->rawColumns(['brand'])
                 ->make(true);
         }else{
             $trucks = Truck::all();
