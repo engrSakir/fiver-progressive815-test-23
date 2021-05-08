@@ -26,7 +26,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand btn btn-success text-white" href="{{ url('/') }}">
-                    {{ config('app.name', 'INDEX') }}
+                    {{ ('HOME') }}
                 </a>
                 <a class="navbar-brand btn btn-success text-white" href="{{ url('/home') }}">
                     {{ 'CREATE' }}
