@@ -10,18 +10,24 @@ class TruckForm extends Form
     public function buildForm()
     {
         $this
-            ->add('Auto brand', Field::SELECT, [
+            ->add('auto_brand', Field::SELECT, [
+                'label' => 'Auto brand',
                 'rules' => 'required',
                 'choices' => ['Volvo' => 'Volvo', 'VAZ' => 'VAZ', 'Mercedes' => 'Mercedes', 'GAZ' => 'GAZ'],
                 'empty_value' => '=== Select brand ==='
             ])
-            ->add('Year of Manufacture', Field::NUMBER, [
-                'rules' => 'required|min:1900|max:'.date('y')
+            ->add('year_of_manufacture', Field::NUMBER, [
+                'label' => 'Year of Manufacture',
+                'rules' => 'required|min:1900'
             ])
-            ->add('Owner‘s Name and Surname', Field::TEXT, [
+            ->add('owner‘s_name_and_surname', Field::TEXT, [
+                'label' => 'Owner‘s Name and Surname',
                 'rules' => 'required'
             ])
-            ->add('Number of owners', 'number')
-            ->add('Comments', 'textarea');
+            ->add('number_of_owners', Field::TEXT, [
+                'label' => 'Number of owners',
+            ])
+            ->add('comments', 'textarea')
+            ->add('submit', 'submit');
     }
 }

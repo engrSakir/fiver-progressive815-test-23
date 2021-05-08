@@ -30,7 +30,6 @@ class TruckController extends Controller
             'method' => 'POST',
             'url' => route('trucks.store')
         ]);
-
         return view('truck.create', compact('form'));
     }
 
@@ -40,9 +39,17 @@ class TruckController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FormBuilder $formBuilder)
     {
-        //
+        //dd($formBuilder);
+        $form = $formBuilder->create(\App\Forms\TruckForm::class);
+        $form->validate(['year_of_manufacture' => 'required|numeric|min:1900|date_format:Y|before:today']);
+        if (!$form->isValid()) {
+            return redirect()->back()->withErrors($form->getErrors())->withInput();
+        }
+        Truck::create($form->getFieldValues());
+        return redirect()->route('trucks.index');
+        // Do saving and other things...
     }
 
     /**
