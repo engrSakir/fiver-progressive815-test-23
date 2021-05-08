@@ -14,7 +14,7 @@ class TruckController extends Controller
      */
     public function index()
     {
-        //
+        echo 'truck';
     }
 
     /**
